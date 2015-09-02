@@ -1,5 +1,6 @@
 body {
   background: #333;
+  margin: 0;
 }
 .container {
   height: 100vh;
@@ -68,6 +69,9 @@ body {
   .front {
     transform: rotateX(180deg);
     background: #eee;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   &.flip {
     animation: flip .7s cubic-bezier(0.62, 0.01, 0.22, 1.62) forwards;

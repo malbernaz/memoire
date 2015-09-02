@@ -49,4 +49,28 @@
 
   // Call tada
   var timer = setTimeout(tada, 4000)
+
+  // Distribute cards
+  function shuffle(array) {
+
+    for (var i = array.length - 1; i > 0; i--) {
+
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    return array;
+  }
+
+  var shuffled = shuffle([1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8])
+
+  console.log(cards[0])
+
+  for(var i = 0; i < cards.length; i++) {
+
+    cards[i].lastElementChild.style.backgroundImage = 'url(/img/dino' + shuffled[i] + '.svg)'
+  }
+
 })()
