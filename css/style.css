@@ -80,6 +80,13 @@ body {
     background: #eee;
     background-size: 70%;
     background-position: center;
+    background-repeat: no-repeat;
+    transition: background 1s ease;
+    transition-delay: .7s; }
+  .card.assert .front {
+    background: grey;
+    background-size: 70%;
+    background-position: center;
     background-repeat: no-repeat; }
   .card.flip {
     -webkit-animation: flip 0.7s cubic-bezier(0.62, 0.01, 0.22, 1.62) forwards;
@@ -88,6 +95,46 @@ body {
     -webkit-animation: tada 0.7s ease;
     animation: tada 0.7s ease;
     z-index: 1; }
+
+@-webkit-keyframes isflip {
+  from {
+    -webkit-transform: rotateX(180deg) scale3d(1, 1, 1);
+    transform: rotateX(180deg) scale3d(1, 1, 1);
+    box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.3); }
+  25% {
+    -webkit-transform: rotateX(180deg) scale3d(1.3, 1.3, 1.3);
+    transform: rotateX(180deg) scale3d(1.3, 1.3, 1.3);
+    box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+  75% {
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
+    box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.3); } }
+
+@keyframes isflip {
+  from {
+    -webkit-transform: rotateX(180deg) scale3d(1, 1, 1);
+    transform: rotateX(180deg) scale3d(1, 1, 1);
+    box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.3); }
+  25% {
+    -webkit-transform: rotateX(180deg) scale3d(1.3, 1.3, 1.3);
+    transform: rotateX(180deg) scale3d(1.3, 1.3, 1.3);
+    box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+  75% {
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
+    box-shadow: 2px 2px 30px 2px rgba(0, 0, 0, 0.2);
+    z-index: 2; }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.3); } }
 
 @-webkit-keyframes flip {
   from {

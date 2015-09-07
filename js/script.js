@@ -3,8 +3,15 @@
 
   var cards = [].slice.call(document.querySelectorAll('.card')),
       getRandom = function(n) {
+
         return Math.floor(Math.random() * n)
-      }
+      },
+      isEqual = function (array) {
+
+        if (array[0].id != array[1].id) return false;
+        return true;
+      },
+      flipped = [];
 
   cards.forEach(function(card) {
 
@@ -16,11 +23,36 @@
     card.addEventListener('click', function(e) {
 
       if (!this.classList.contains('flip') || this.classList.contains('tada')) {
+
         this.classList.remove('tada')
+        this.style.removeProperty('animation');
         this.classList.add('flip')
         this.style.cursor = 'default'
-
         cards.splice(cards.indexOf(card), 1)
+        flipped.push(this);
+        if (flipped.length == 2) {
+
+          if (!isEqual(flipped)) {
+
+            flipped.forEach(function(card) {
+
+              setTimeout(function() {
+
+                card.classList.remove('flip')
+                card.style.animation = 'isflip .7s cubic-bezier(0.62, 0.01, 0.22, 1.62)'
+                card.style.cursor = 'pointer'
+                cards.push(card)
+              }, 1400)
+            })
+            flipped = []
+          } else {
+
+            flipped.forEach(function(card){
+              card.classList.add('assert')
+            })
+            flipped = []
+          }
+        }
       }
     })
   })
@@ -34,13 +66,16 @@
     } else {
 
       cards.forEach(function(card) {
+
         card.classList.remove('tada')
       })
 
       var randomCard = getRandom(cards.length)
 
       setTimeout(function() {
+
         cards[randomCard].classList.add('tada')
+        cards[randomCard].style.removeProperty('animation')
       }, 0)
 
       setTimeout(tada, 4000)
@@ -66,11 +101,10 @@
 
   var shuffled = shuffle([1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8])
 
-  console.log(cards[0])
-
   for(var i = 0; i < cards.length; i++) {
 
     cards[i].lastElementChild.style.backgroundImage = 'url(/img/dino' + shuffled[i] + '.svg)'
+    cards[i].setAttribute("id", shuffled[i])
   }
 
 })()
