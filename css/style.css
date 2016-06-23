@@ -92,8 +92,8 @@ body {
     -webkit-animation: flip 0.7s cubic-bezier(0.62, 0.01, 0.22, 1.62) forwards;
     animation: flip 0.7s cubic-bezier(0.62, 0.01, 0.22, 1.62) forwards; }
   .card.tada {
-    -webkit-animation: tada 0.7s ease;
-    animation: tada 0.7s ease;
+    -webkit-animation: tada .7s ease;
+    animation: tada .7s ease;
     z-index: 1; }
 
 @-webkit-keyframes isflip {
