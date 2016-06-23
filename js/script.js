@@ -103,7 +103,7 @@
 
   for(var i = 0; i < cards.length; i++) {
 
-    cards[i].lastElementChild.style.backgroundImage = 'url(/img/dino' + shuffled[i] + '.svg)'
+    cards[i].lastElementChild.style.backgroundImage = 'url(./img/dino' + shuffled[i] + '.svg)'
     cards[i].setAttribute("id", shuffled[i])
   }
 
