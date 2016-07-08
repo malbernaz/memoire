@@ -1,4 +1,4 @@
-# memoire
+# Memoire
 
 A simple html memory game.
 
